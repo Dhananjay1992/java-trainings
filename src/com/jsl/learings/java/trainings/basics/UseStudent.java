@@ -17,7 +17,7 @@ public class UseStudent {
 		studentArrayList.add(dj);
 		studentArrayList.add(alex);
 		studentArrayList.add(s3);
-		System.out.println(dj.equals(alex));
+		System.out.println("Object equals: "+ dj.equals(alex));
 		//demo default toString method
 		System.out.println(dj);
 

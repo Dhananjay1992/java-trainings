@@ -9,7 +9,7 @@ public class ThreadWithCallable implements Callable<String> {
 		System.out.println(Thread.currentThread().getId());
 		System.out.println(Thread.currentThread().getThreadGroup());
 		System.out.println(Thread.currentThread().getName());
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		return UUID.randomUUID().toString();
 	}
 }

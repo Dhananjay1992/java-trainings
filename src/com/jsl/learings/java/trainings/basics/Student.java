@@ -87,7 +87,7 @@ public class Student implements StudentInterface, Comparable<Student>{
 		if (o == null || getClass() != o.getClass()) return false;
 		Student student = (Student) o;
 //		return studentAge == student.studentAge && studentName.equals(student.studentName);
-		return studentId == student.studentId;
+		return this.getStudentName().equals(student.getStudentName());
 	}
 
 	@Override

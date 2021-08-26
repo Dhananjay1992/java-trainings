@@ -12,14 +12,15 @@ public class UseThreadPoolExecutor {
 		cachedThreadPool = threadPoolExecutor;
 		Future<String> returnValue = cachedThreadPool.submit(new ThreadWithCallable());
 		try {
-			System.out.println(returnValue.get(2, TimeUnit.SECONDS));
+			System.out.println(returnValue.get(3, TimeUnit.SECONDS));
 		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
 		cachedThreadPool.submit(new ThreadWithCallable()).get();
 		cachedThreadPool.submit(new ThreadWithRunnable());
 		cachedThreadPool.execute(new ThreadWithRunnable());
-		System.out.println(cachedThreadPool.getActiveCount());
+
+		System.out.println("Active count: "+ cachedThreadPool.getActiveCount());
 		cachedThreadPool.shutdown();
 	}
 }
