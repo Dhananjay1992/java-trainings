@@ -1,36 +1,42 @@
 package com.jsl.learings.java.trainings.basics;
 
-import java.nio.charset.StandardCharsets;
-import java.security.SecureRandomSpi;
 import java.util.Objects;
-import java.util.Random;
 import java.util.UUID;
 
-public class Student implements StudentInterface, Comparable<Student>{
+public class Student implements StudentInterface, Comparable<Student> {
+	public static final int DEFAULT_STUDENT_AGE = 18;
+	public static final String DEFAULT_STUDENT_NAME = "STUDENT";
+	private static long idCounter;
+
+	static {
+		idCounter = 10;
+	}
+
 	private char testChar;
 	private String studentName;
 	private int studentAge;
 	private long studentId;
-	private static long idCounter;
 	private String result;
 	private RESULT studentResult;
-	public static final int DEFAULT_STUDENT_AGE = 18;
-	public static final String DEFAULT_STUDENT_NAME = "STUDENT";
 
-	static {
-		idCounter=10;
-	}
 	Student() {
-		this(generateRandomStudent(),DEFAULT_STUDENT_AGE);
+		this(generateRandomStudent(), DEFAULT_STUDENT_AGE);
 	}
+
 	Student(String name) {
 		this(name, DEFAULT_STUDENT_AGE);
 	}
+
 	Student(String name, int age) {
 		this.studentName = name;
 		this.studentAge = age;
 		this.studentId = idCounter;
 		idCounter++;
+	}
+
+	private static String generateRandomStudent() {
+		final String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		return UUID.randomUUID().toString();
 	}
 
 	public String getStudentName() {
@@ -105,21 +111,18 @@ public class Student implements StudentInterface, Comparable<Student>{
 				", studentResult=" + studentResult +
 				'}';
 	}
-	public void setExaminationResult(int marks){
-		if(marks > 40){
+
+	public void setExaminationResult(int marks) {
+		if (marks > 40) {
 			this.setResult("PASS");
 			this.setStudentResult(StudentInterface.RESULT.PASS);
-		} else if(marks >=35){
+		} else if (marks >= 35) {
 			this.setResult("PROMOTED");
 			this.setStudentResult(StudentInterface.RESULT.PROMOTED);
-		}else {
+		} else {
 			this.setResult("FAIL");
 			this.setStudentResult(StudentInterface.RESULT.FAIL);
 		}
-	}
-	private static String generateRandomStudent(){
-		final String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		return UUID.randomUUID().toString();
 	}
 
 	@Override

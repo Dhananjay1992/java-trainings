@@ -20,7 +20,7 @@ public class UseThreadPoolExecutor {
 		cachedThreadPool.submit(new ThreadWithRunnable());
 		cachedThreadPool.execute(new ThreadWithRunnable());
 
-		System.out.println("Active count: "+ cachedThreadPool.getActiveCount());
+		System.out.println("Active count: " + cachedThreadPool.getActiveCount());
 		cachedThreadPool.shutdown();
 	}
 }

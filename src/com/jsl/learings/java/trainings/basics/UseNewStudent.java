@@ -17,10 +17,10 @@ public class UseNewStudent {
 		newStudentArrayList.add(ns4);
 		Comparator<NewStudent> newStudentAgeComparator = Comparator.comparing(NewStudent::getNewStudentAge);
 		Comparator<NewStudent> newStudentNameComparator = Comparator.comparing(NewStudent::getNewStudentName);
-		Collections.sort(newStudentArrayList,newStudentAgeComparator.thenComparing(newStudentNameComparator));
+		Collections.sort(newStudentArrayList, newStudentAgeComparator.thenComparing(newStudentNameComparator));
 //		Collections.sort(newStudentArrayList, new NewStudentAgeComparator());
 		System.out.println("Printing new Student array list.............");
-		System.out.println(ns1.compare(ns1,ns2));
+		System.out.println(ns1.compare(ns1, ns2));
 		newStudentArrayList.forEach(System.out::println);
 	}
 }

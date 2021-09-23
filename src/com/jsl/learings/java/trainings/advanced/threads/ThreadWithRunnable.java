@@ -1,16 +1,14 @@
 package com.jsl.learings.java.trainings.advanced.threads;
 
-import java.util.Random;
-
-public class ThreadWithRunnable implements Runnable{
+public class ThreadWithRunnable implements Runnable {
 	@Override
 	public void run() {
-		try{
+		try {
 			System.out.println(Thread.currentThread().getId());
 			System.out.println(Thread.currentThread().getThreadGroup());
 			System.out.println(Thread.currentThread().getName());
 
-		}catch (Exception e){
+		} catch (Exception e) {
 
 		}
 	}

@@ -1,37 +1,43 @@
 package com.jsl.learings.java.trainings.basics;
 
-import java.nio.charset.StandardCharsets;
-import java.security.SecureRandomSpi;
 import java.util.Comparator;
 import java.util.Objects;
-import java.util.Random;
 import java.util.UUID;
 
 public class NewStudent implements StudentInterface, Comparator<NewStudent> {
+	public static final int DEFAULT_NewStudent_AGE = 18;
+	public static final String DEFAULT_NewStudent_NAME = "NewStudent";
+	private static long idCounter;
+
+	static {
+		idCounter = 10;
+	}
+
 	private char testChar;
 	private String NewStudentName;
 	private int NewStudentAge;
 	private long NewStudentId;
-	private static long idCounter;
 	private String result;
 	private RESULT NewStudentResult;
-	public static final int DEFAULT_NewStudent_AGE = 18;
-	public static final String DEFAULT_NewStudent_NAME = "NewStudent";
 
-	static {
-		idCounter=10;
-	}
 	NewStudent() {
-		this(generateRandomNewStudent(),DEFAULT_NewStudent_AGE);
+		this(generateRandomNewStudent(), DEFAULT_NewStudent_AGE);
 	}
+
 	NewStudent(String name) {
 		this(name, 18);
 	}
+
 	NewStudent(String name, int age) {
 		this.NewStudentName = name;
 		this.NewStudentAge = age;
 		this.NewStudentId = idCounter;
 		idCounter++;
+	}
+
+	private static String generateRandomNewStudent() {
+		final String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		return UUID.randomUUID().toString();
 	}
 
 	public String getNewStudentName() {
@@ -84,7 +90,7 @@ public class NewStudent implements StudentInterface, Comparator<NewStudent> {
 
 	@Override
 	public int compare(NewStudent o1, NewStudent o2) {
-		return o1.getNewStudentAge()<o2.getNewStudentAge()?-1:o1.getNewStudentAge()==o2.getNewStudentAge()?0:1;
+		return o1.getNewStudentAge() < o2.getNewStudentAge() ? -1 : o1.getNewStudentAge() == o2.getNewStudentAge() ? 0 : 1;
 //		return Integer.compare(o1.getNewStudentAge(), o2.getNewStudentAge());
 	}
 
@@ -112,20 +118,17 @@ public class NewStudent implements StudentInterface, Comparator<NewStudent> {
 				", NewStudentResult=" + NewStudentResult +
 				'}';
 	}
-	public void setExaminationResult(int marks){
-		if(marks > 40){
+
+	public void setExaminationResult(int marks) {
+		if (marks > 40) {
 			this.setResult("PASS");
 			this.setNewStudentResult(StudentInterface.RESULT.PASS);
-		} else if(marks >=35){
+		} else if (marks >= 35) {
 			this.setResult("PROMOTED");
 			this.setNewStudentResult(StudentInterface.RESULT.PROMOTED);
-		}else {
+		} else {
 			this.setResult("FAIL");
 			this.setNewStudentResult(StudentInterface.RESULT.FAIL);
 		}
-	}
-	private static String generateRandomNewStudent(){
-		final String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		return UUID.randomUUID().toString();
 	}
 }

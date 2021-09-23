@@ -4,15 +4,16 @@ import java.util.Random;
 
 public class SingletonClass {
 	private static SingletonClass instance;
-	private int id;
 	private static int counter;
 
 	static {
 		counter = 10;
 	}
 
+	private int id;
+
 	private SingletonClass() {
-		this.id = new Random().nextInt(100)+counter;
+		this.id = new Random().nextInt(100) + counter;
 	}
 
 	public static SingletonClass getInstance() {
