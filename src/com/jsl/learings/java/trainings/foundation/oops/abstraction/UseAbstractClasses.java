@@ -2,8 +2,8 @@ package com.jsl.learings.java.trainings.foundation.oops.abstraction;
 
 public class UseAbstractClasses {
 	public static void main(String[] args) {
-		AbstractPerson dj = new NStudent("Dhananjay", "Joshi", HumanBeing.GENDER.MALE);
-		NStudent alex = new NStudent("Alex", "Klimenko",HumanBeing.GENDER.MALE);
+		AbstractPerson dj = new NStudent("Dhananjay", "Jo", HumanBeing.GENDER.MALE);
+		NStudent alex = new NStudent("Alex", "Kli",HumanBeing.GENDER.MALE);
 		System.out.println(dj.getUpperCaseNameFullName());
 		System.out.println(dj.getFullName());
 		System.out.println(alex.getUpperCaseNameFullName());
